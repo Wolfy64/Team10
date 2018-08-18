@@ -8,15 +8,15 @@ import connect from "react-redux/es/connect/connect";
 class Dashboard extends Component {
 
     componentWillMount() {
-        /*if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
+        if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
             this.props.history.push('/signin');
-        }*/
+        }
     }
 
     componentWillUpdate(nextProps) {
-        /*if (!nextProps.userReducer.isAuthorized || nextProps.userReducer.profile === undefined) {
+        if (!nextProps.userReducer.isAuthorized || nextProps.userReducer.profile === undefined) {
             nextProps.history.push('/signin');
-        }*/
+        }
     }
 
 
@@ -49,8 +49,8 @@ class Dashboard extends Component {
                                                     </div>
                                                     <div className="col-xs-7">
                                                         <div className="numbers">
-                                                            <p>Goals</p>
-                                                            Your
+                                                            <p>Your</p>
+                                                            Goals
                                                         </div>
                                                     </div>
                                                 </div>

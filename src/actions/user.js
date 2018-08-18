@@ -30,7 +30,7 @@ export const googleSignin = () => {
                 'response_type': 'token',
                 'scope': constants.GOOGLE_API_SCOPES,
                 'include_granted_scopes': 'true',
-                'state': 'eCampusHubAuthentication'
+                'state': 'Authentication'
             };
 
             // Add form parameters as hidden input values.
