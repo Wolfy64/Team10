@@ -1,0 +1,12 @@
+{
+  "ROUTE_HOME": "/",
+  "GOOGLE_OAUTH2_API": "https://accounts.google.com/o/oauth2/v2/auth",
+  "GOOGLE_OAUTH2_REDIRECT_URL": "http://localhost:3000/signin",
+  "GOOGLE_USER_INFO_API": "https://www.googleapis.com/oauth2/v3/userinfo",
+  "GOOGLE_TOKEN_INFO_API": "https://www.googleapis.com/oauth2/v3/tokeninfo",
+  "GOOGLE_CLIENT_ID": "",
+  "GOOGLE_CLIENT_SECRET": "",
+  "GOOGLE_API_KEY": "",
+  "GOOGLE_API_SCOPES": "profile email",
+  "GOOGLE_DISCOVERY_DOCS": []
+}
