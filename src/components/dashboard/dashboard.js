@@ -38,7 +38,7 @@ class Dashboard extends Component {
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col-lg-3 col-sm-6">
-                                    <Link to="/artemplate">
+                                    <Link to="/goals">
                                         <div className="card">
                                             <div className="content">
                                                 <div className="row">
@@ -49,8 +49,8 @@ class Dashboard extends Component {
                                                     </div>
                                                     <div className="col-xs-7">
                                                         <div className="numbers">
-                                                            <p>ARTemplate</p>
-                                                            AR
+                                                            <p>Goals</p>
+                                                            Your
                                                         </div>
                                                     </div>
                                                 </div>

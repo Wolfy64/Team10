@@ -7,11 +7,7 @@ const Footer = () => {
                 <div className="copyright pull-right">
                     &copy;&nbsp;
                     <span>{new Date().getFullYear()}​</span>
-                    .&nbsp;<a href="http://www.sjsu.edu/ecampus/" target="_blank" rel="noopener noreferrer">
-                    eCampus
-                </a> @ <a href="http://www.sjsu.edu/" target="_blank" rel="noopener noreferrer">
-                    SJSU
-                </a>.
+                    .&nbsp;Team 10.
                 </div>
             </div>
         </footer>

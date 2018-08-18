@@ -15,7 +15,7 @@ const Navigation = (props) => {
             <div className="sidebar-wrapper">
                 <div className="logo">
                     <Link to="/" className="simple-text">
-                        The Hub
+                        Flourish Savings
                     </Link>
                 </div>
 
@@ -26,10 +26,10 @@ const Navigation = (props) => {
                             <p>Dashboard</p>
                         </Link>
                     </li>
-                    <li className={props.title === 'AR Template' ? 'active' : ''}>
-                        <Link to="/artemplate">
+                    <li className={props.title === 'Your Goals' ? 'active' : ''}>
+                        <Link to="/goals">
                             <i className="ti-camera"/>
-                            <p>AR Template</p>
+                            <p>Your Goals</p>
                         </Link>
                     </li>
                 </ul>
