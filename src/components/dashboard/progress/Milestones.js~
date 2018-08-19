@@ -1,0 +1,91 @@
+import React from "react";
+import styled from "styled-components";
+// import Confetti from "react-confetti";
+
+const Bar = styled.div``;
+const MilestonesEl = styled.div`
+  padding: 3em;
+  #foo {
+  }
+`;
+const Goals = styled.div`
+  @keyframes trans {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 50px, 0);
+    }
+  }
+  .far {
+    font-size: 2em;
+    margin: 0.7em;
+  }
+  font-size: 1.2em;
+  display: flex;
+  text-align: center;
+  padding: 5em;
+  color: #4ea;
+  justify-content: space-around;
+  animation: trans 1.5s;
+  .not-started {
+    color: gray;
+  }
+  .fail {
+    color: #faa;
+  }
+  .current {
+    color: deepskyblue;
+  }
+`;
+
+class Milestones extends React.Component {
+  render() {
+    const { goals, weeks, balance, mainGoal } = this.props;
+    return (
+      <MilestonesEl>
+        <h3 style={{ textAlign: "center" }}>
+          You're doing great! {70}% of your weekly goal reached!
+        </h3>
+        <div className="progress">
+          <div className="progress-bar" style={{ width: `${70}%` }} />
+        </div>
+        <Goals>
+          {goals.map((el, i) => {
+            return !el ? (
+              <div key={i}>
+                <div className="not-started">Not started</div>
+                <div>
+                  <i className="far fa-circle not-started" />
+                </div>
+              </div>
+            ) : el.current ? (
+              <div className="current">
+                <div>Week {i}</div>
+                <div>
+                  <i className="far fa-circle current" />
+                </div>
+              </div>
+            ) : el.done ? (
+              <div key={i}>
+                <div>Week {i}</div>
+                <div>
+                  <i className="far fa-check-circle" />
+                </div>
+                <div>${el.amount}</div>
+              </div>
+            ) : (
+              <div key={i} className="fail">
+                <div>Week {i}</div>
+                <div>
+                  <i className="far fa-circle" />
+                </div>
+                <div>${el.amount}</div>
+              </div>
+            );
+          })}
+        </Goals>
+      </MilestonesEl>
+    );
+  }
+}
+
+export default Milestones;

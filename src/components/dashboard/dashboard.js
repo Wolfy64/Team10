@@ -39,7 +39,7 @@ class Dashboard extends Component {
                                             <div className="content">
                                                 <div className="row">
                                                     <div className="col-xs-5">
-                                                        <div className="icon-big icon-primary text-center">
+                                                        <div className="icon-big icon-info text-center">
                                                             <i className="fas fa-plus"/>
                                                         </div>
                                                     </div>
@@ -132,6 +132,34 @@ class Dashboard extends Component {
                                                         <div className="numbers">
                                                             <p>Redeem</p>
                                                             Rewards
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {/*<div className="footer">
+                                                <hr/>
+                                                <div className="stats">
+                                                    <i className="ti-reload"/> Updated now
+                                                </div>
+                                            </div>*/}
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+
+                                <div className="col-lg-4 col-sm-6">
+                                    <Link to="/save">
+                                        <div className="card">
+                                            <div className="content">
+                                                <div className="row">
+                                                    <div className="col-xs-5">
+                                                        <div className="icon-big text-center" style={{color: 'pink'}}>
+                                                            <i className="fas fa-piggy-bank"/>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-xs-7">
+                                                        <div className="numbers">
+                                                            <p>Execute</p>
+                                                            Save
                                                         </div>
                                                     </div>
                                                 </div>

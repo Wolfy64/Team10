@@ -1,7 +1,6 @@
 import {combineReducers} from 'redux';
 import userReducer from './user';
-import artemplateReducer from './artemplate';
 
-const rootReducer = combineReducers({userReducer, artemplateReducer});
+const rootReducer = combineReducers({userReducer});
 
 export default rootReducer

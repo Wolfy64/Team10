@@ -129,3 +129,30 @@ const googleGetUserProfile = (token) => {
             throw error;
         });
 };
+
+export const save = (data) => {
+    return (dispatch) => {
+        return axios
+            .get(`${constants.GOOGLE_TOKEN_INFO_API}`)
+            .then(response => {
+                // Dispatch another action to consume data
+                if (response.status === 200) {
+                    dispatch({
+                        type: actionTypes.SAVE,
+                        status: 'SUCCESS'
+                    });
+                } else {
+                    dispatch({
+                        type: actionTypes.SAVE,
+                        status: 'ERROR'
+                    });
+                }
+            })
+            .catch(error => {
+                dispatch({
+                    type: actionTypes.SAVE,
+                    status: 'ERROR'
+                });
+            });
+    }
+};
