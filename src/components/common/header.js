@@ -9,18 +9,6 @@ class Header extends Component {
 
     }
 
-    componentWillMount() {
-        if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
-            this.props.history.push('/signin');
-        }
-    }
-
-    componentWillUpdate(nextProps) {
-        if (!nextProps.userReducer.isAuthorized || nextProps.userReducer.profile === undefined) {
-            nextProps.history.push('/signin');
-        }
-    }
-
     render() {
         return (
             <nav className="navbar navbar-default">
