@@ -53,7 +53,6 @@ class Progress extends Component {
 
           <div className="content">
             <div className="container-fluid">
-              <h1>Progress</h1>
               <div className="progress">
                 <div
                   className="progress-bar"
