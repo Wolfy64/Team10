@@ -35,7 +35,7 @@ class Rewards extends Component {
                             <div className="row">
                                 {/* === CASH OUT === */}
                                 <div className="col-lg-4 col-sm-6">
-                                    <Link to="/">
+                                    <Link to="/cash-out">
                                         <div className="card">
                                             <div className="content">
                                                 <div className="row">
@@ -46,7 +46,7 @@ class Rewards extends Component {
                                                     </div>
                                                     <div className="col-xs-7">
                                                         <div className="numbers">
-                                                            <p>Do you want</p>
+                                                            <p>Token</p>
                                                             Cash Out
                                                         </div>
                                                     </div>
@@ -59,7 +59,7 @@ class Rewards extends Component {
 
                                 {/* === GIFT CARD === */}
                                 <div className="col-lg-4 col-sm-6">
-                                    <Link to="/">
+                                    <Link to="/rewards">
                                         <div className="card">
                                             <div className="content">
                                                 <div className="row">
@@ -83,7 +83,7 @@ class Rewards extends Component {
 
                                 {/* === GAME WAFFLE === */}
                                 <div className="col-lg-4 col-sm-6">
-                                    <Link to="/">
+                                    <Link to="/rewards">
                                         <div className="card">
                                             <div className="content">
                                                 <div className="row">

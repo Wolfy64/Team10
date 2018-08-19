@@ -18,6 +18,8 @@ export {default as Progress}
     from "./dashboard/progress/progress";
 export {default as Save}
     from "./dashboard/save/save";
+export {default as CashOut}
+    from "./dashboard/rewards/cashOut";
 export {default as ErrorPage}
 from "./common/errorPage";
 
