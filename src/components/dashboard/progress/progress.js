@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Footer, Header, Navigation } from '../../index';
-import { bindActionCreators } from 'redux';
-import * as userActions from '../../../actions/user';
-import connect from 'react-redux/es/connect/connect';
+import React, { Component } from "react";
+import { Footer, Header, Navigation } from "../../index";
+import { bindActionCreators } from "redux";
+import * as userActions from "../../../actions/user";
+import connect from "react-redux/es/connect/connect";
+import Milestones from "./Milestones";
 
 class Progress extends Component {
   constructor(props) {
@@ -10,6 +11,13 @@ class Progress extends Component {
     this.state = {
       weeks: 4,
       goal: 1000,
+      goals: [
+        { amount: 100, done: false },
+        { amount: 300, done: true },
+        { amount: 400, done: true, current: true },
+        null,
+        null
+      ],
       amount: 500,
       progress: 0
     };
@@ -24,7 +32,7 @@ class Progress extends Component {
       !this.props.userReducer.isAuthorized ||
       this.props.userReducer.profile === undefined
     ) {
-      this.props.history.push('/signin');
+      this.props.history.push("/signin");
     }
   }
 
@@ -33,22 +41,23 @@ class Progress extends Component {
       !nextProps.userReducer.isAuthorized ||
       this.props.userReducer.profile === undefined
     ) {
-      this.props.history.push('/signin');
+      this.props.history.push("/signin");
     }
   }
 
   handleProgressBar() {
     const { goal, amount } = this.state;
-    const progress = (amount * 100) / goal;
+    const progress = amount * 100 / goal;
     this.setState({ progress });
   }
 
   render() {
+    const { mainGoal, weeks, goals, amount } = this.state;
     return (
       <div className="wrapper">
         <Navigation title="Progress" />
 
-        <div className="main-panel">
+        <div className="main-panel card">
           <Header title="Progress" />
 
           <div className="content">
@@ -59,6 +68,13 @@ class Progress extends Component {
                   style={{ width: `${this.state.progress}%` }}
                 />
               </div>
+
+              <Milestones
+                mainGoal={mainGoal}
+                weeks={weeks}
+                goals={goals}
+                balance={amount}
+              />
             </div>
           </div>
 
@@ -79,7 +95,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default (Progress = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Progress));
+export default (Progress = connect(mapStateToProps, mapDispatchToProps)(
+  Progress
+));
