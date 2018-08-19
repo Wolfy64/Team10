@@ -25,10 +25,13 @@ class Dashboard extends Component {
 
 
     render() {
+        const activeGoal = this.props.userReducer.user.goals.find(
+            goal => goal.isActive
+        );
         return (
             <div className="wrapper">
 
-                <Navigation title="Dashboard"/>
+                <Navigation title="Dashboard" exclude="Add Goal"/>
 
                 <div className="main-panel">
 
@@ -37,34 +40,35 @@ class Dashboard extends Component {
                     <div className="content">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-lg-4 col-sm-6">
-                                    <Link to="/add-goal">
-                                        <div className="card">
-                                            <div className="content">
-                                                <div className="row">
-                                                    <div className="col-xs-5">
-                                                        <div className="icon-big icon-info text-center">
-                                                            <i className="fas fa-plus"/>
+                                {activeGoal === undefined ? '' :
+                                    <div className="col-lg-4 col-sm-6">
+                                        <Link to="/add-goal">
+                                            <div className="card">
+                                                <div className="content">
+                                                    <div className="row">
+                                                        <div className="col-xs-5">
+                                                            <div className="icon-big icon-info text-center">
+                                                                <i className="fas fa-plus"/>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-xs-7">
+                                                            <div className="numbers">
+                                                                <p>Add</p>
+                                                                Goal
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div className="col-xs-7">
-                                                        <div className="numbers">
-                                                            <p>Add</p>
-                                                            Goal
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                {/*<div className="footer">
+                                                    {/*<div className="footer">
                                                 <hr/>
                                                 <div className="stats">
                                                     <i className="ti-reload"/> Updated now
                                                 </div>
                                             </div>*/}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </Link>
-                                </div>
-
+                                        </Link>
+                                    </div>
+                                }
                                 <div className="col-lg-4 col-sm-6">
                                     <Link to="/goals">
                                         <div className="card">

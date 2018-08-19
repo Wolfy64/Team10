@@ -130,6 +130,12 @@ const googleGetUserProfile = (token) => {
         });
 };
 
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+}
+
 export const save = (userData, data) => {
 
     userData.coins += data.amount;
@@ -137,6 +143,46 @@ export const save = (userData, data) => {
     userData.goals.forEach(function (goal) {
         if (goal.isActive) {
             goal.currentAmount += data.amount;
+            if (goal.currentAmount >= goal.objective) {
+                goal.isActive = false;
+                goal.achieved = true;
+            }
+            for (let i = 1; i <= goal.weeks.length; ++i) {
+                let today = new Date();
+                if (goal.weeks[i].achieved === undefined) {
+                    if (i - 1 > -1) {
+                        // if current week
+                        if (addDays(goal.startDate, ((i - 1)) * 7) < today && today <= addDays(goal.startDate, (i * 7))) {
+                            if (goal.currentAmount >= goal.weeks[i].target) {
+                                goal.weeks[i].achieved = true;
+                            }
+                        } else if (today <= addDays(goal.startDate, (i * 7))) {
+                            if (goal.currentAmount >= goal.weeks[i].target) {
+                                goal.weeks[i].achieved = true;
+                            }
+                        } else if (today > addDays(goal.startDate, (i * 7))) {
+                            if (goal.currentAmount >= goal.weeks[i].target) {
+                                goal.weeks[i].achieved = false;
+                            }
+                        }
+                    } else {
+                        // if current week
+                        if (today <= addDays(goal.startDate, (i * 7))) {
+                            if (goal.currentAmount >= goal.weeks[i].target) {
+                                goal.weeks[i].achieved = true;
+                            }
+                        } else if (today <= addDays(goal.startDate, (i * 7))) {
+                            if (goal.currentAmount >= goal.weeks[i].target) {
+                                goal.weeks[i].achieved = true;
+                            }
+                        } else if (today > addDays(goal.startDate, (i * 7))) {
+                            if (goal.currentAmount >= goal.weeks[i].target) {
+                                goal.weeks[i].achieved = false;
+                            }
+                        }
+                    }
+                }
+            }
         }
     });
 

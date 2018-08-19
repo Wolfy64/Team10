@@ -30,14 +30,16 @@ const Navigation = (props) => {
                             </div>
                         </Link>
                     </li>
-                    <li className={props.title === 'Add Goal' ? 'active' : ''}>
-                        <Link to="/add-goal">
-                            <div className={props.title === 'Add Goal' ? 'text-info' : ''}>
-                                <i className="fas fa-plus"/>
-                                <p>Add Goal</p>
-                            </div>
-                        </Link>
-                    </li>
+                    {props.exclude === 'Add Goal' ? '' :
+                        <li className={props.title === 'Add Goal' ? 'active' : ''}>
+                            <Link to="/add-goal">
+                                <div className={props.title === 'Add Goal' ? 'text-info' : ''}>
+                                    <i className="fas fa-plus"/>
+                                    <p>Add Goal</p>
+                                </div>
+                            </Link>
+                        </li>
+                    }
                     <li className={props.title === 'Goals' ? 'active' : ''}>
                         <Link to="/goals">
                             <div className={props.title === 'Goals' ? 'text-danger' : ''}>
