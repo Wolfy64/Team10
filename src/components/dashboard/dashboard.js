@@ -11,11 +11,17 @@ class Dashboard extends Component {
         if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
             this.props.history.push('/signin');
         }
+        if (this.props.userReducer.user === undefined) {
+            this.props.userActions.getUser(this.props.userReducer.profile.email);
+        }
     }
 
     componentWillUpdate(nextProps) {
         if (!nextProps.userReducer.isAuthorized || nextProps.userReducer.profile === undefined) {
             nextProps.history.push('/signin');
+        }
+        if (nextProps.userReducer.user === undefined) {
+            nextProps.userActions.getUser(nextProps.userReducer.profile.email);
         }
     }
 
@@ -110,9 +116,9 @@ class Dashboard extends Component {
                                                 {/*<div className="footer">*/}
                                                 {/*<hr/>*/}
                                                 {/*<div className="stats">*/}
-                                                    {/*<i className="ti-reload"/> Updated now*/}
+                                                {/*<i className="ti-reload"/> Updated now*/}
                                                 {/*</div>*/}
-                                            {/*</div>*/}
+                                                {/*</div>*/}
                                             </div>
                                         </div>
                                     </Link>

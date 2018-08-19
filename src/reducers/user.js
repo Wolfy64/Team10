@@ -17,6 +17,13 @@ export default (state = {}, action) => {
                 status: action.status,
                 message: action.message
             };
+        case actionTypes.GET_USER:
+            return {
+                ...state,
+                status: action.status,
+                message: action.message,
+                user: action.user
+            };
         default:
             return state
     }

@@ -34,20 +34,20 @@ class Save extends Component {
 
 
     componentWillMount() {
-        if (
-            !this.props.userReducer.isAuthorized ||
-            this.props.userReducer.profile === undefined
-        ) {
+        if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
             this.props.history.push('/signin');
+        }
+        if (this.props.userReducer.user === undefined) {
+            this.props.userActions.getUser(this.props.userReducer.profile.email);
         }
     }
 
     componentWillUpdate(nextProps) {
-        if (
-            !nextProps.userReducer.isAuthorized ||
-            this.props.userReducer.profile === undefined
-        ) {
-            this.props.history.push('/signin');
+        if (!nextProps.userReducer.isAuthorized || nextProps.userReducer.profile === undefined) {
+            nextProps.history.push('/signin');
+        }
+        if (nextProps.userReducer.user === undefined) {
+            nextProps.userActions.getUser(nextProps.userReducer.profile.email);
         }
     }
 
@@ -74,7 +74,8 @@ class Save extends Component {
                                                     <div className="col-md-12">
                                                         <div className="form-group">
                                                             <label>Amount ($)</label>
-                                                            <input type="number" className="form-control border-input"
+                                                            <input type="number"
+                                                                   className="form-control border-input"
                                                                    placeholder="amount in USD"
                                                                    name="amount"
                                                                    min="1"
@@ -86,7 +87,8 @@ class Save extends Component {
                                                 </div>
 
                                                 <div className="text-center">
-                                                    <button type="submit" className="btn btn-info btn-fill btn-wd">Save
+                                                    <button type="submit"
+                                                            className="btn btn-info btn-fill btn-wd">Save
                                                     </button>
                                                 </div>
                                                 <div className="clearfix"/>
@@ -105,15 +107,17 @@ class Save extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {userReducer: state.userReducer};
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        userActions: bindActionCreators(userActions, dispatch)
+const
+    mapStateToProps = state => {
+        return {userReducer: state.userReducer};
     };
-};
+
+const
+    mapDispatchToProps = dispatch => {
+        return {
+            userActions: bindActionCreators(userActions, dispatch)
+        };
+    };
 
 export default (Save = connect(
     mapStateToProps,
