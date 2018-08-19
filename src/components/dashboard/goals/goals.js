@@ -35,8 +35,7 @@ class Goals extends Component {
     }
 
     handleGoalList() {
-        let goals = this.props.userReducer.user.goals.reverse();
-        return goals.map(goal => (
+        return this.props.userReducer.user.goals.reverse().map(goal => (
             <Goal
                 key={goal.id}
                 id={goal.id}
