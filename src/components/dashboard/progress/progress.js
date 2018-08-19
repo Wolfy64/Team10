@@ -16,8 +16,8 @@ class Progress extends Component {
                 {amount: 100, done: false},
                 {amount: 300, done: true},
                 {amount: 400, done: true, current: true},
-                null,
-                null
+                {amount: 100, done: undefined},
+                {amount: 100, done: undefined},
             ],
             amount: 500,
             progress: 0
@@ -124,15 +124,11 @@ class Progress extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <Milestones goals={goals} mainGoal={mainGoal} weeks={weeks} amount={amount}/>
                                     </div>
-                                </div>
-                            </div>
-                            {/*<div className="row">
-                                <div className="card">
                                     <Milestones goals={goals} mainGoal={mainGoal} weeks={weeks} amount={amount}/>
                                 </div>
-                            </div>*/}
+                            </div>
+
                         </div>
                     </div>
                     <Footer/>

@@ -161,3 +161,7 @@ can apply same for padding,margin etc where these units are req
 .goals-active{
     background: blanchedalmond!important;
 }
+
+.milestone{
+    padding: 10px;
+}
