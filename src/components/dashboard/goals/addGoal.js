@@ -116,10 +116,11 @@ class AddGoal extends Component {
                                                         <div className="form-group">
                                                             <label>Title</label>
                                                             <input
-                                                                type="number"
+                                                                type="text"
                                                                 className="form-control border-input"
                                                                 placeholder="enter a title for the goal"
                                                                 name="title"
+                                                                id="title"
                                                                 onChange={event => this.handleChange(event)}
                                                                 required
                                                             />
@@ -133,6 +134,7 @@ class AddGoal extends Component {
                                                             <select
                                                                 className="form-control border-input"
                                                                 name="category"
+                                                                id="category"
                                                             >
                                                                 {options}
                                                             </select>
@@ -175,6 +177,9 @@ class AddGoal extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {this.state.renderWeeks.length > 0 ? <div className="header">
+                                                    <h4 className="title">What can you commit for each week?</h4><br/>
+                                                </div> : ''}
                                                 {this.state.renderWeeks}
                                                 <div className="text-center">
                                                     <button
