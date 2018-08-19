@@ -1,12 +1,41 @@
 import React from "react";
 
 class Milestones extends React.Component {
+  checkCurrentWeek(i) {
+    const { activeGoal } = this.props;
+    const start = new Date(activeGoal.startDate);
+    const today = new Date();
+    const oneDay = 24 * 60 * 60 * 1000;
+    const offset = i * oneDay * 7;
+    const daysBetween = Math.round(
+      (today.getTime() - (start.getTime() + offset)) / oneDay
+    );
+    return daysBetween;
+  }
   render() {
-    const { goals, weeks, balance, mainGoal } = this.props;
+    const { objective, activeGoal, amount } = this.props;
+    const { weeks } = activeGoal;
     return (
       <div className="row">
-        {goals.map((el, i) => {
-          return el.done === undefined ? (
+        {weeks.map((el, i) => {
+          const pastPresentFuture = this.checkCurrentWeek(i);
+          return pastPresentFuture < 7 && pastPresentFuture > 0 ? (
+            <div key={i} className="col-lg-2 col-md-4 col-xs-6">
+              <div className="card">
+                <div className="content">
+                  <div className="row">
+                    <div className="col">
+                      <div className="icon-big icon-info text-center">
+                        <p>Week {i}</p>
+                        <i className="far fa-circle" />
+                        <p>${el.target}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : pastPresentFuture < 0 ? (
             <div key={i} className="col-lg-2 col-md-4 col-xs-6">
               <div className="card">
                 <div className="content">
@@ -15,30 +44,14 @@ class Milestones extends React.Component {
                       <div className="icon-big icon-warning text-center">
                         <p>Not started</p>
                         <i className="fas fa-circle" />
-                        <p>${el.amount}</p>
+                        <p>${el.target}</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          ) : el.current ? (
-            <div className="col-lg-2 col-md-4 col-xs-6">
-              <div className="card">
-                <div className="content">
-                  <div className="row">
-                    <div className="col">
-                      <div className="icon-big icon-info text-center">
-                        <p>Week {i}</p>
-                        <i className="far fa-circle" />
-                        <p>${el.amount}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : el.done === true ? (
+          ) : el.achieved === true ? (
             <div key={i} className="col-lg-2 col-md-4 col-xs-6">
               <div className="card">
                 <div className="content">
@@ -47,7 +60,7 @@ class Milestones extends React.Component {
                       <div className="icon-big icon-success text-center">
                         <p>Week {i}</p>
                         <i className="far fa-check-circle" />
-                        <p>${el.amount}</p>
+                        <p>${el.target}</p>
                       </div>
                     </div>
                   </div>
@@ -63,7 +76,7 @@ class Milestones extends React.Component {
                       <div className="icon-big icon-danger text-center">
                         <p>Week {i}</p>
                         <i className="far fa-times-circle text-danger" />
-                        <p>${el.amount}</p>
+                        <p>${el.target}</p>
                       </div>
                     </div>
                   </div>
