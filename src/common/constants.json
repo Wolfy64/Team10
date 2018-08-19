@@ -1,5 +1,4 @@
 {
-  "ROUTE_HOME": "/",
   "GOOGLE_OAUTH2_API": "https://accounts.google.com/o/oauth2/v2/auth",
   "GOOGLE_OAUTH2_REDIRECT_URL": "http://localhost:3000/signin",
   "GOOGLE_USER_INFO_API": "https://www.googleapis.com/oauth2/v3/userinfo",
