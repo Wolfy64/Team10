@@ -83,7 +83,7 @@ class Progress extends Component {
         );
         return (
             <div className="wrapper">
-                <Navigation title="Progress"/>
+                <Navigation title="Progress" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>
 
                 <div className="main-panel">
                     <Header title="Progress"/>
