@@ -124,8 +124,8 @@
     },
     {
       "id": "chintan.vachhani10@gmail.com",
-      "coins": 44014,
-      "saving": 28504,
+      "coins": 46014,
+      "saving": 29304,
       "goals": [
         {
           "id": 1,
@@ -423,19 +423,23 @@
           "isActive": true,
           "objective": "1000",
           "startDate": "2018-08-19T19:24:03.281Z",
-          "currentAmount": 150,
+          "currentAmount": 950,
           "weeks": [
             {
-              "target": 200
+              "target": 200,
+              "achieved": true
             },
             {
-              "target": 200
+              "target": 200,
+              "achieved": true
             },
             {
-              "target": 200
+              "target": 200,
+              "achieved": true
             },
             {
-              "target": 200
+              "target": 200,
+              "achieved": true
             },
             {
               "target": 200

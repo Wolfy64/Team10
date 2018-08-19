@@ -5,7 +5,7 @@ const Goal = props => {
 
     return (
         <tr key={props.id} className={isActive}>
-            <td>{props.id}</td>
+            {/*<td>{props.id}</td>*/}
             <td>{props.name}</td>
             <td>{props.category}</td>
             <td className="goals-text-center">

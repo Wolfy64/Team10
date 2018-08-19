@@ -27,7 +27,7 @@ class Milestones extends React.Component {
                                     <div className="row">
                                         <div className="col">
                                             <div className="icon-big icon-info text-center">
-                                                <p>Week {i}</p>
+                                                <p>Week {i+1}</p>
                                                 <i className="far fa-circle"/>
                                                 <p>${el.target}</p>
                                             </div>
@@ -59,7 +59,7 @@ class Milestones extends React.Component {
                                     <div className="row">
                                         <div className="col">
                                             <div className="icon-big icon-success text-center">
-                                                <p>Week {i}</p>
+                                                <p>Week {i+1}</p>
                                                 <i className="far fa-check-circle"/>
                                                 <p>${el.target}</p>
                                             </div>
@@ -75,7 +75,7 @@ class Milestones extends React.Component {
                                     <div className="row">
                                         <div className="col">
                                             <div className="icon-big icon-danger text-center">
-                                                <p>Week {i}</p>
+                                                <p>Week {i+1}</p>
                                                 <i className="far fa-times-circle text-danger"/>
                                                 <p>${el.target}</p>
                                             </div>

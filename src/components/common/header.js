@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import * as userActions from "../../actions/user";
 import connect from "react-redux/es/connect/connect";
+import coin from "../../img/coin.png";
 
 class Header extends Component {
     constructor(props) {
@@ -49,7 +50,12 @@ class Header extends Component {
                             <li>
                                 <a>
                                 <span className="text-vertical-align-center">
-                                    <i className="fab fa-gg-circle fa-lg text-primary"/>
+                                    {/*<i className="fab fa-gg-circle fa-lg text-primary"/>*/}
+                                    <img
+                                        src={coin}
+                                        alt='token'
+                                        className="img-circle img-no-padding img-responsive" width={25}
+                                        height={25}/>
                                     <p style={{color: 'black'}}>&nbsp;{this.props.userReducer.user ? this.props.userReducer.user.coins : ''}</p>
                                 </span>
                                 </a>
