@@ -31,7 +31,7 @@ class Dashboard extends Component {
         return (
             <div className="wrapper">
 
-                <Navigation title="Dashboard" exclude="Add Goal"/>
+                <Navigation title="Dashboard" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>
 
                 <div className="main-panel">
 
@@ -40,7 +40,7 @@ class Dashboard extends Component {
                     <div className="content">
                         <div className="container-fluid">
                             <div className="row">
-                                {activeGoal === undefined ? '' :
+                                {activeGoal === undefined ?
                                     <div className="col-lg-4 col-sm-6">
                                         <Link to="/add-goal">
                                             <div className="card">
@@ -68,6 +68,7 @@ class Dashboard extends Component {
                                             </div>
                                         </Link>
                                     </div>
+                                    : ''
                                 }
                                 <div className="col-lg-4 col-sm-6">
                                     <Link to="/goals">
