@@ -3,7 +3,8 @@ import {Footer, Header, Navigation} from "../../index";
 import {bindActionCreators} from "redux";
 import * as userActions from "../../../actions/user";
 import connect from "react-redux/es/connect/connect";
-import Milestones from "./Milestones";
+import Milestones from "./milestones";
+import {Link} from "react-router-dom";
 
 class Progress extends Component {
     constructor(props) {
@@ -62,20 +63,64 @@ class Progress extends Component {
 
                     <div className="content">
                         <div className="container-fluid">
-                            <div className="card">
-                                <div className="progress">
-                                    <div
-                                        className="progress-bar"
-                                        style={{width: `${this.state.progress}%`}}
-                                    />
+                            <div className="row">
+                                {/* === Goals === */}
+                                <div className="col-lg-4 col-sm-6">
+                                        <div className="card">
+                                            <div className="content">
+                                                <div className="row">
+                                                    <div className="col-xs-5">
+                                                        <div className="icon-big icon-success text-center">
+                                                            <i className="fas fa-dollar-sign"/>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-xs-7">
+                                                        <div className="numbers">
+                                                            <p>Goals Achieved</p>
+                                                            2
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
-
-                                <Milestones
-                                    mainGoal={mainGoal}
-                                    weeks={weeks}
-                                    goals={goals}
-                                    balance={amount}
-                                />
+                                {/* ===  === */}
+                                {/* === Goals === */}
+                                <div className="col-lg-4 col-sm-6">
+                                    <div className="card">
+                                        <div className="content">
+                                            <div className="row">
+                                                <div className="col-xs-5">
+                                                    <div className="icon-big icon-success text-center">
+                                                        <i className="fas fa-dollar-sign"/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-xs-7">
+                                                    <div className="numbers">
+                                                        <p>Goals Missed</p>
+                                                        1
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* ===  === */}
+                            </div>
+                            <div className="row">
+                                <div className="card">
+                                    <div className="progress">
+                                        <div
+                                            className="progress-bar"
+                                            style={{width: `${this.state.progress}%`}}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="card">
+                                    <Milestones goals={goals} mainGoal={mainGoal} weeks={weeks} amount={amount}/>
+                                </div>
                             </div>
                         </div>
                     </div>

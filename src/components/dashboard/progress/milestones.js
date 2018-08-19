@@ -22,7 +22,7 @@ const Goals = styled.div`
   font-size: 1.2em;
   display: flex;
   text-align: center;
-  padding: 5em;
+  padding: 0.75em;
   color: #4ea;
   justify-content: space-around;
   animation: trans 1.5s;

@@ -69,7 +69,7 @@ class Save extends Component {
                                             <h4 className="title">Make a Savings deposit</h4>
                                         </div>
                                         <div className="content">
-                                            <form>
+                                            <form onSubmit={this.submitForm}>
                                                 <div className="row">
                                                     <div className="col-md-12">
                                                         <div className="form-group">
