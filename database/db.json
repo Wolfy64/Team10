@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "id": "ledavid64@gmail.comXX",
-      "coins": 10,
+      "id": "ledavid64@gmail.com",
+      "coins": 40,
       "saving": 2000,
       "goals": [
         {
@@ -115,12 +115,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "ledavid64j@gmail.com",
-      "coins": 10,
-      "saving": 2000,
-      "goals": []
     },
     {
       "id": "chintan.vachhani108@gmail.com",
