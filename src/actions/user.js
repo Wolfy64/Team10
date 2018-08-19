@@ -140,42 +140,47 @@ export const save = (userData, data) => {
 
     userData.coins = parseInt(userData.coins) + parseInt(data.amount);
     userData.saving = parseInt(userData.saving) + parseInt(data.amount);
+
     userData.goals.forEach(function (goal) {
         if (goal.isActive) {
-            goal.currentAmount += data.amount;
+            goal.currentAmount = parseInt(goal.currentAmount) + parseInt(data.amount);
             if (goal.currentAmount >= goal.objective) {
                 goal.isActive = false;
                 goal.achieved = true;
             }
-            for (let i = 1; i <= goal.weeks.length; ++i) {
+            for (let i = 0; i < goal.weeks.length; ++i) {
                 let today = new Date();
                 if (goal.weeks[i].achieved === undefined) {
                     if (i - 1 > -1) {
                         // if current week
-                        if (addDays(goal.startDate, ((i - 1)) * 7) < today && today <= addDays(goal.startDate, (i * 7))) {
+                        if (addDays(goal.startDate, ((i - 1)) * 7) < today && today <= addDays(goal.startDate, ((i + 1) * 7))) {
                             if (goal.currentAmount >= goal.weeks[i].target) {
                                 goal.weeks[i].achieved = true;
+                                userData.coins = parseInt(userData.coins) + parseInt(i * goal.weeks[i].target);
                             }
-                        } else if (today <= addDays(goal.startDate, (i * 7))) {
+                        } else if (today <= addDays(goal.startDate, ((i + 1) * 7))) {
                             if (goal.currentAmount >= goal.weeks[i].target) {
                                 goal.weeks[i].achieved = true;
+                                userData.coins = parseInt(userData.coins) + parseInt(i * goal.weeks[i].target);
                             }
-                        } else if (today > addDays(goal.startDate, (i * 7))) {
+                        } else if (today > addDays(goal.startDate, ((i + 1) * 7))) {
                             if (goal.currentAmount >= goal.weeks[i].target) {
                                 goal.weeks[i].achieved = false;
                             }
                         }
                     } else {
                         // if current week
-                        if (today <= addDays(goal.startDate, (i * 7))) {
+                        if (today <= addDays(goal.startDate, ((i + 1) * 7))) {
                             if (goal.currentAmount >= goal.weeks[i].target) {
                                 goal.weeks[i].achieved = true;
+                                userData.coins = parseInt(userData.coins) + parseInt(i * goal.weeks[i].target);
                             }
-                        } else if (today <= addDays(goal.startDate, (i * 7))) {
+                        } else if (today <= addDays(goal.startDate, ((i + 1) * 7))) {
                             if (goal.currentAmount >= goal.weeks[i].target) {
                                 goal.weeks[i].achieved = true;
+                                userData.coins = parseInt(userData.coins) + parseInt(i * goal.weeks[i].target);
                             }
-                        } else if (today > addDays(goal.startDate, (i * 7))) {
+                        } else if (today > addDays(goal.startDate, ((i + 1) * 7))) {
                             if (goal.currentAmount >= goal.weeks[i].target) {
                                 goal.weeks[i].achieved = false;
                             }
@@ -292,6 +297,19 @@ const addUser = email => {
 
 export const addGoal = (userData, data) => {
 
+    const activeGoal = userData.goals.find(
+        goal => goal.isActive
+    );
+
+    if (activeGoal !== undefined) {
+        return (dispatch) => {
+            dispatch({
+                type: actionTypes.ADD_GOAL,
+                status: 'ERROR'
+            });
+        };
+    }
+
     const today = new Date();
     let weeks = [];
     data.weeksArray.forEach((target) => {
@@ -322,19 +340,19 @@ export const addGoal = (userData, data) => {
                 // Dispatch another action to consume data
                 if (response.status === 200) {
                     dispatch({
-                        type: actionTypes.SAVE,
+                        type: actionTypes.ADD_GOAL,
                         status: 'UPDATED'
                     });
                 } else {
                     dispatch({
-                        type: actionTypes.SAVE,
+                        type: actionTypes.ADD_GOAL,
                         status: 'ERROR'
                     });
                 }
             })
             .catch(error => {
                 dispatch({
-                    type: actionTypes.SAVE,
+                    type: actionTypes.ADD_GOAL,
                     status: 'ERROR'
                 });
             });

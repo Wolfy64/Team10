@@ -74,7 +74,7 @@ class Progress extends Component {
     }
 
     handleGoalMissed() {
-        return this.props.userReducer.user.goals.filter(goal => !goal.achieved)
+        return this.props.userReducer.user.goals.filter(goal => (!goal.achieved && !goal.isActive))
             .length;
     }
 
@@ -147,6 +147,7 @@ class Progress extends Component {
                                                     activeGoal === undefined ? "You don't have an active goal" : "This is your current goal's progress."
                                                 }
                                             </p>
+                                            <br/>
                                         </div>
                                         {activeGoal === undefined ? '' :
                                             <div className="content">

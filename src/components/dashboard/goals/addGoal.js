@@ -9,23 +9,25 @@ class AddGoal extends Component {
         super(props);
         this.state = {
             weeks: 0,
-            renderWeeks: []
+            renderWeeks: [],
+            weeksArray: []
         };
         this.handleChange = this.handleChange.bind(this);
         this.submitForm = this.submitForm.bind(this);
     }
 
     handleChange(event) {
-        console.log(event.target.id);
+        // console.log(event.target.id);
         this.setState({
             [event.target.id]: event.target.value
         });
-        if (event.target.id === 'weeks') this.handleRenderWeeks(event.target.value);
+        if (event.target.id === 'weeks') this.handleRenderWeeks(event.target.value, []);
     }
 
-    handleRenderWeeks(weeks) {
+    handleRenderWeeks(weeks, arr) {
         let renderWeeks = [];
         for (let i = 0; i < weeks; i++) {
+            arr.push(this.state.amount / weeks);
             renderWeeks.push(
                 <div className="row">
                     <div className="col-md-12">
@@ -49,6 +51,7 @@ class AddGoal extends Component {
         }
 
         this.setState({renderWeeks});
+        this.setState({weeksArray: arr});
     }
 
     submitForm(event) {
@@ -56,6 +59,7 @@ class AddGoal extends Component {
         // let formData = new FormData();
         // formData.append('name', this.state.name);
         // formData.append('email', this.state.email);
+        // console.log(this.state);
         this.props.userActions.addGoal(this.props.userReducer.user, this.state);
         event.target.reset();
     }
@@ -71,6 +75,13 @@ class AddGoal extends Component {
             this.props.userReducer.status === 'UPDATED'
         ) {
             this.props.userActions.getUser(this.props.userReducer.profile.email);
+        } else {
+            const activeGoal = this.props.userReducer.user.goals.find(
+                goal => goal.isActive
+            );
+            if (activeGoal) {
+                this.props.history.push('/');
+            }
         }
     }
 
@@ -85,11 +96,18 @@ class AddGoal extends Component {
             nextProps.userReducer.status === 'UPDATED'
         ) {
             nextProps.userActions.getUser(nextProps.userReducer.profile.email);
+        } else {
+            const activeGoal = nextProps.userReducer.user.goals.find(
+                goal => goal.isActive
+            );
+            if (activeGoal) {
+                nextProps.history.push('/');
+            }
         }
     }
 
     render() {
-        const options = ['Emergency', 'Travel', 'Family', 'Product'].map(opt => (
+        const options = ['', 'Emergency', 'Travel', 'Family', 'Product'].map(opt => (
             <option>{opt}</option>
         ));
         const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
@@ -132,6 +150,7 @@ class AddGoal extends Component {
                                                         <div className="form-group">
                                                             <label>Category</label>
                                                             <select
+                                                                onChange={event => this.handleChange(event)}
                                                                 className="form-control border-input"
                                                                 name="category"
                                                                 id="category"

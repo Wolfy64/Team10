@@ -24,6 +24,12 @@ export default (state = {}, action) => {
                 message: action.message,
                 user: action.user
             };
+        case actionTypes.ADD_GOAL:
+            return {
+                ...state,
+                status: action.status,
+                message: action.message,
+            };
         default:
             return state
     }
