@@ -4,7 +4,7 @@ import {bindActionCreators} from "redux";
 import * as userActions from "../../../actions/user";
 import connect from "react-redux/es/connect/connect";
 
-class ARTemplate extends Component {
+class Rewards extends Component {
 
     componentWillMount() {
         if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
@@ -22,18 +22,15 @@ class ARTemplate extends Component {
         return (
             <div className="wrapper">
 
-                <Navigation title="AR Template"/>
+                <Navigation title="Rewards"/>
 
                 <div className="main-panel">
 
-                    <Header title="AR Template"
-                            userName={this.props.userReducer.profile ? this.props.userReducer.profile.fullName : ''}
-                            userImage={this.props.userReducer.profile ? this.props.userReducer.profile.imageURL : ''}
-                            userActions={this.props.userActions}
-                    />
+                    <Header title="Rewards"/>
 
                     <div className="content">
                         <div className="container-fluid">
+
                         </div>
                     </div>
 
@@ -41,8 +38,7 @@ class ARTemplate extends Component {
 
                 </div>
             </div>
-        )
-            ;
+        );
     }
 }
 
@@ -56,4 +52,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default ARTemplate = connect(mapStateToProps, mapDispatchToProps)(ARTemplate);
+export default Rewards = connect(mapStateToProps, mapDispatchToProps)(Rewards);

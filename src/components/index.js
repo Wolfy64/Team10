@@ -8,8 +8,14 @@ export {default as Header}
 from "./common/header";
 export {default as SignIn}
 from "./common/signin";
-export {default as ARTemplate}
-from "./dashboard/artemplate/artemplate";
+export {default as AddGoal}
+from "./dashboard/goals/addGoal";
+export {default as Goals}
+    from "./dashboard/goals/goals";
+export {default as Rewards}
+    from "./dashboard/rewards/rewards";
+export {default as Progress}
+    from "./dashboard/progress/progress";
 export {default as ErrorPage}
 from "./common/errorPage";
 

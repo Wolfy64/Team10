@@ -28,11 +28,7 @@ class Dashboard extends Component {
 
                 <div className="main-panel">
 
-                    <Header title="Dashboard"
-                            userName={this.props.userReducer.profile ? this.props.userReducer.profile.fullName : ''}
-                            userImage={this.props.userReducer.profile ? this.props.userReducer.profile.imageURL : ''}
-                            userActions={this.props.userActions}
-                    />
+                    <Header title="Dashboard"/>
 
                     <div className="content">
                         <div className="container-fluid">
@@ -110,12 +106,13 @@ class Dashboard extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/*<div className="footer">
-                                                <hr/>
-                                                <div className="stats">
-                                                    <i className="ti-reload"/> Updated now
-                                                </div>
-                                            </div>*/}
+
+                                                {/*<div className="footer">*/}
+                                                {/*<hr/>*/}
+                                                {/*<div className="stats">*/}
+                                                    {/*<i className="ti-reload"/> Updated now*/}
+                                                {/*</div>*/}
+                                            {/*</div>*/}
                                             </div>
                                         </div>
                                     </Link>

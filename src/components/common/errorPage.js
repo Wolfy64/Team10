@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
 import bgError from "../../img/bg-error.png";
 
 class ErrorPage extends Component {
@@ -10,7 +11,7 @@ class ErrorPage extends Component {
                 <br/>
                 <br/>
                 <br/>
-                <a href="/" role="button" className="btn btn-warning btn-default">Go to Home</a>
+                <Link to="/" role="button" className="btn btn-warning btn-default">Go to Home</Link>
                 {/*<div className="container">
                     <div className="row">
                         <div className="col col-sm col-md-4 col-lg-4 col-xl-3">
