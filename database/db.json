@@ -1,0 +1,80 @@
+{
+  "users":{
+    "user1@gmail.com": {
+      "coins": 10,
+      "saving": 2000,
+      "goalsList": {
+        "goal_1": {
+          "id": 1,
+          "name": "Guatemala",
+          "category": "Travel",
+          "achieved": true,
+          "isActive": true,
+          "objective": 800,
+          "startDate": "8/1/2018",
+          "currentAmount": 500,
+          "progress": 0,
+          "weeks": [
+            {"target": 100, "achieved": false},
+            {"target": 300, "achieved": true},
+            {"target": 400, "achieved": true}
+            ]
+        },
+        "goal_2": {
+          "id": 2,
+          "name": "Buy a present to my wife",
+          "category": "Family",
+          "achieved": true,
+          "isActive": true,
+          "objective": 1000,
+          "startDate": "8/1/2018",
+          "currentAmount": 300,
+          "weeks": [
+            {"target": 100, "achieved": false},
+            {"target": 300, "achieved": true},
+            {"target": 400, "achieved": true},
+            {"target": 200, "achieved": true}
+            ]
+        }
+      }
+    },
+    "user2@gmail.com": {
+      "coins": 50,
+      "saving": 5000,
+      "goalsList": {
+        "goal_1": {
+          "id": 1,
+          "name": "Buy a new phone",
+          "category": "Product",
+          "achieved": false,
+          "isActive": false,
+          "objective": 500,
+          "startDate": "8/1/2018",
+          "currentAmount": 500,
+          "progress": 0,
+          "weeks": [
+            {"target": 100, "achieved": false},
+            {"target": 300, "achieved": true},
+            {"target": 400, "achieved": true}
+            ]
+        },
+        "goal_2": {
+          "id": 2,
+          "name": "Saving",
+          "category": "Emergency",
+          "achieved": false,
+          "isActive": true,
+          "objective": 1000,
+          "startDate": "8/1/2018",
+          "currentAmount": 300,
+          "weeks": [
+            {"target": 100, "achieved": false},
+            {"target": 300, "achieved": true},
+            {"target": 400, "achieved": true},
+            {"target": 200, "achieved": true}
+            ]
+        }
+      }
+    }
+  }
+}
