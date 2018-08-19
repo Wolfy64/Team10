@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {Dashboard, ErrorPage, SignIn, AddGoal, Goals, Rewards, Progress, Save} from "../components";
+import {Dashboard, ErrorPage, SignIn, AddGoal, Goals, Rewards, Progress, Save, CashOut} from "../components";
 
 class ApplicationRoute extends Component {
 
@@ -14,6 +14,7 @@ class ApplicationRoute extends Component {
                     <Route exact path="/rewards" component={Rewards}/>
                     <Route exact path="/progress" component={Progress}/>
                     <Route exact path="/save" component={Save}/>
+                    <Route exact path="/cash-out" component={CashOut}/>
                     <Route exact path="/signin" component={SignIn}/>
                     <Route component={ErrorPage}/>
                 </Switch>

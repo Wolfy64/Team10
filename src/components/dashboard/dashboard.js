@@ -10,8 +10,7 @@ class Dashboard extends Component {
     componentWillMount() {
         if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
             this.props.history.push('/signin');
-        }
-        if (this.props.userReducer.user === undefined) {
+        } else if (this.props.userReducer.user === undefined || this.props.userReducer.status === 'UPDATED') {
             this.props.userActions.getUser(this.props.userReducer.profile.email);
         }
     }
@@ -19,8 +18,7 @@ class Dashboard extends Component {
     componentWillUpdate(nextProps) {
         if (!nextProps.userReducer.isAuthorized || nextProps.userReducer.profile === undefined) {
             nextProps.history.push('/signin');
-        }
-        if (nextProps.userReducer.user === undefined) {
+        } else if (nextProps.userReducer.user === undefined || nextProps.userReducer.status === 'UPDATED') {
             nextProps.userActions.getUser(nextProps.userReducer.profile.email);
         }
     }

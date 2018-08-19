@@ -9,15 +9,17 @@ class Rewards extends Component {
     componentWillMount() {
         if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
             this.props.history.push('/signin');
+        } else if (this.props.userReducer.user === undefined || this.props.userReducer.status === 'UPDATED') {
+            this.props.userActions.getUser(this.props.userReducer.profile.email);
         }
-        if(this.props.userReducer.user === undefined){this.props.userActions.getUser(this.props.userReducer.profile.email);}
     }
 
     componentWillUpdate(nextProps) {
         if (!nextProps.userReducer.isAuthorized || nextProps.userReducer.profile === undefined) {
             nextProps.history.push('/signin');
+        } else if (nextProps.userReducer.user === undefined || nextProps.userReducer.status === 'UPDATED') {
+            nextProps.userActions.getUser(nextProps.userReducer.profile.email);
         }
-        if(nextProps.userReducer.user === undefined){nextProps.userActions.getUser(nextProps.userReducer.profile.email);}
     }
 
     render() {
@@ -33,7 +35,7 @@ class Rewards extends Component {
                             <div className="row">
                                 {/* === CASH OUT === */}
                                 <div className="col-lg-4 col-sm-6">
-                                    <Link to="/">
+                                    <Link to="/cash-out">
                                         <div className="card">
                                             <div className="content">
                                                 <div className="row">
@@ -44,7 +46,7 @@ class Rewards extends Component {
                                                     </div>
                                                     <div className="col-xs-7">
                                                         <div className="numbers">
-                                                            <p>Do you want</p>
+                                                            <p>Token</p>
                                                             Cash Out
                                                         </div>
                                                     </div>
@@ -57,7 +59,7 @@ class Rewards extends Component {
 
                                 {/* === GIFT CARD === */}
                                 <div className="col-lg-4 col-sm-6">
-                                    <Link to="/">
+                                    <Link to="/rewards">
                                         <div className="card">
                                             <div className="content">
                                                 <div className="row">
@@ -81,7 +83,7 @@ class Rewards extends Component {
 
                                 {/* === GAME WAFFLE === */}
                                 <div className="col-lg-4 col-sm-6">
-                                    <Link to="/">
+                                    <Link to="/rewards">
                                         <div className="card">
                                             <div className="content">
                                                 <div className="row">

@@ -5,12 +5,12 @@ import {bindActionCreators} from 'redux';
 import * as userActions from '../../../actions/user';
 import connect from 'react-redux/es/connect/connect';
 
-class Save extends Component {
+class CashOut extends Component {
     constructor(props) {
         super(props);
 
         this.handleChange = this.handleChange.bind(this);
-        this.submitForm = this.submitForm.bind(this);
+        this.submitForm = this.submitForm.bind(this)
     }
 
     handleChange(event) {
@@ -24,7 +24,7 @@ class Save extends Component {
         // let formData = new FormData();
         // formData.append('name', this.state.name);
         // formData.append('email', this.state.email);
-        this.props.userActions.save(this.props.userReducer.user, this.state);
+        // this.props.userActions.cashOut(this.props.userReducer.user, this.state);
         event.target.reset();
     }
 
@@ -48,10 +48,10 @@ class Save extends Component {
     render() {
         return (
             <div className="wrapper">
-                <Navigation title="Save"/>
+                <Navigation title="Rewards"/>
 
                 <div className="main-panel">
-                    <Header title="Save"/>
+                    <Header title="Cash Out"/>
 
                     <div className="content">
                         <div className="container-fluid">
@@ -60,17 +60,31 @@ class Save extends Component {
                                 <div className="col-lg-8 col-md-7">
                                     <div className="card">
                                         <div className="header">
-                                            <h4 className="title">Make a Savings deposit</h4>
+                                            <h4 className="title">Cash out Flourish Tokens</h4>
                                         </div>
                                         <div className="content">
                                             <form onSubmit={this.submitForm}>
                                                 <div className="row">
                                                     <div className="col-md-12">
                                                         <div className="form-group">
-                                                            <label>Amount ($)</label>
+                                                            <label>Receiver's Address</label>
+                                                            <input type="text"
+                                                                   className="form-control border-input"
+                                                                   placeholder="wallet address"
+                                                                   name="address"
+                                                                   onChange={(event) => this.handleChange(event)}
+                                                                   required/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="row">
+                                                    <div className="col-md-12">
+                                                        <div className="form-group">
+                                                            <label>Amount (FT)</label>
                                                             <input type="number"
                                                                    className="form-control border-input"
-                                                                   placeholder="amount in USD"
+                                                                   placeholder="number of Flourish Tokens"
                                                                    name="amount"
                                                                    min="1"
                                                                    onChange={(event) => this.handleChange(event)}
@@ -81,7 +95,7 @@ class Save extends Component {
 
                                                 <div className="text-center">
                                                     <button type="submit"
-                                                            className="btn btn-info btn-fill btn-wd">Save
+                                                            className="btn btn-info btn-fill btn-wd">Cash Out
                                                     </button>
                                                 </div>
                                                 <div className="clearfix"/>
@@ -112,7 +126,7 @@ const
         };
     };
 
-export default (Save = connect(
+export default (CashOut = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Save));
+)(CashOut));
