@@ -7,7 +7,7 @@
       "goals": [
         {
           "id": 1,
-          "name": "Guatemala",
+          "name": "Guatemala to Visit Family",
           "category": "Travel",
           "achieved": true,
           "isActive": false,
@@ -32,7 +32,7 @@
         },
         {
           "id": 2,
-          "name": "Buy a present to my wife",
+          "name": "Buy present wife for Anniversary",
           "category": "Family",
           "achieved": false,
           "isActive": false,
@@ -60,7 +60,7 @@
         },
         {
           "id": 3,
-          "name": "Buy a new phone",
+          "name": "Buy first smartphone for job",
           "category": "Products",
           "achieved": true,
           "isActive": false,
@@ -88,7 +88,7 @@
         },
         {
           "id": 4,
-          "name": "Save just in case",
+          "name": "Help friend in need",
           "category": "Emergency",
           "achieved": false,
           "isActive": true,
