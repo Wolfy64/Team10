@@ -2,12 +2,12 @@ import { actionTypes } from '../common';
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case actionTypes.GET_GOALS:
+    case actionTypes.GET_USER:
       return {
         ...state,
         status: action.status,
         message: action.message,
-        users: action.users
+        user: action.user
       };
     case actionTypes.SAVE:
       return {

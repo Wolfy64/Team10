@@ -1,4 +1,5 @@
 # Team10
+// npm install json-server -g
 // json-server --watch database/db.json
 
 //Resources
