@@ -73,7 +73,7 @@ class Rewards extends Component {
                                                     </div>
                                                     <div className="col-xs-7">
                                                         <div className="numbers">
-                                                            <p>Do you want</p>
+                                                            <p>Exchange</p>
                                                             Gift Card
                                                         </div>
                                                     </div>
