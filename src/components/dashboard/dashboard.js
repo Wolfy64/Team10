@@ -25,9 +25,10 @@ class Dashboard extends Component {
 
 
     render() {
-        const activeGoal = this.props.userReducer.user.goals.find(
+        const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
             goal => goal.isActive
-        );
+        ) : undefined;
+
         return (
             <div className="wrapper">
 

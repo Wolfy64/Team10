@@ -51,9 +51,9 @@ class AddGoal extends Component {
         const options = ["Emergency", "Travel", "Family", "Product"].map((opt) =>
             <option>{opt}</option>
         );
-        const activeGoal = this.props.userReducer.user.goals.find(
+        const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
             goal => goal.isActive
-        );
+        ) : undefined;
         return (
             <div className="wrapper">
                 <Navigation title="Add Goal" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>

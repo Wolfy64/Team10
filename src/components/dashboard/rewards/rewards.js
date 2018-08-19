@@ -23,9 +23,9 @@ class Rewards extends Component {
     }
 
     render() {
-        const activeGoal = this.props.userReducer.user.goals.find(
+        const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
             goal => goal.isActive
-        );
+        ) : undefined;
         return (
             <div className="wrapper">
                 <Navigation title="Rewards" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>

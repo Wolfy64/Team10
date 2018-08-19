@@ -46,15 +46,15 @@ class CashOut extends Component {
     }
 
     render() {
-        const activeGoal = this.props.userReducer.user.goals.find(
+        const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
             goal => goal.isActive
-        );
+        ) : undefined;
         return (
             <div className="wrapper">
-                <Navigation title="Rewards"/>
+                <Navigation title="Rewards" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>
 
                 <div className="main-panel">
-                    <Header title="Cash Out" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>
+                    <Header title="Cash Out"/>
 
                     <div className="content">
                         <div className="container-fluid">
