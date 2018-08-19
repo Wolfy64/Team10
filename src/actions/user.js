@@ -138,8 +138,8 @@ function addDays(date, days) {
 
 export const save = (userData, data) => {
 
-    userData.coins += data.amount;
-    userData.saving += data.amount;
+    userData.coins = parseInt(userData.coins) + parseInt(data.amount);
+    userData.saving = parseInt(userData.saving) + parseInt(data.amount);
     userData.goals.forEach(function (goal) {
         if (goal.isActive) {
             goal.currentAmount += data.amount;
@@ -288,4 +288,55 @@ const addUser = email => {
         .catch(error => {
             throw error;
         });
+};
+
+export const addGoal = (userData, data) => {
+
+    const today = new Date();
+    let weeks = [];
+    data.weeksArray.forEach((target) => {
+        weeks.push({
+            "target": target,
+            "achieved": false
+        });
+    });
+
+    const goal = {
+        "id": userData.goals.length + 1,
+        "name": data.title,
+        "category": data.category,
+        "achieved": false,
+        "isActive": true,
+        "objective": data.amount,
+        "startDate": today,
+        "currentAmount": 0,
+        "weeks": weeks
+    };
+
+    userData.goals.push(goal);
+
+    return (dispatch) => {
+        return axios
+            .patch(`http://localhost:3001/users/${userData.id}`, userData)
+            .then(response => {
+                // Dispatch another action to consume data
+                if (response.status === 200) {
+                    dispatch({
+                        type: actionTypes.SAVE,
+                        status: 'UPDATED'
+                    });
+                } else {
+                    dispatch({
+                        type: actionTypes.SAVE,
+                        status: 'ERROR'
+                    });
+                }
+            })
+            .catch(error => {
+                dispatch({
+                    type: actionTypes.SAVE,
+                    status: 'ERROR'
+                });
+            });
+    }
 };

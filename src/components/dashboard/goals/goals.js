@@ -48,9 +48,12 @@ class Goals extends Component {
   }
 
   render() {
+      const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
+          goal => goal.isActive
+      ) : undefined;
     return (
       <div className="wrapper">
-        <Navigation title="Goals" />
+        <Navigation title="Goals" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>
 
         <div className="main-panel">
           <Header title="Goals" />

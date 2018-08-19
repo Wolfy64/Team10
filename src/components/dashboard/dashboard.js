@@ -35,12 +35,16 @@ class Dashboard extends Component {
   }
 
   render() {
-    const activeGoal = this.props.userReducer.user.goals.find(
-      goal => goal.isActive
-    );
+    const activeGoal = this.props.userReducer.user
+      ? this.props.userReducer.user.goals.find(goal => goal.isActive)
+      : undefined;
+
     return (
       <div className="wrapper">
-        <Navigation title="Dashboard" exclude="Add Goal" />
+        <Navigation
+          title="Dashboard"
+          exclude={activeGoal === undefined ? '' : 'Add Goal'}
+        />
 
         <div className="main-panel">
           <Header title="Dashboard" />
@@ -49,8 +53,6 @@ class Dashboard extends Component {
             <div className="container-fluid">
               <div className="row">
                 {activeGoal === undefined ? (
-                  ''
-                ) : (
                   <div className="col-lg-4 col-sm-6">
                     <Link to="/add-goal">
                       <div className="card">
@@ -78,6 +80,8 @@ class Dashboard extends Component {
                       </div>
                     </Link>
                   </div>
+                ) : (
+                  ''
                 )}
                 <div className="col-lg-4 col-sm-6">
                   <Link to="/goals">

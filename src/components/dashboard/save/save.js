@@ -46,9 +46,12 @@ class Save extends Component {
     }
 
     render() {
+        const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
+            goal => goal.isActive
+        ) : undefined;
         return (
             <div className="wrapper">
-                <Navigation title="Save"/>
+                <Navigation title="Save" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>
 
                 <div className="main-panel">
                     <Header title="Save"/>
@@ -72,6 +75,7 @@ class Save extends Component {
                                                                    className="form-control border-input"
                                                                    placeholder="amount in USD"
                                                                    name="amount"
+                                                                   id="amount"
                                                                    min="1"
                                                                    onChange={(event) => this.handleChange(event)}
                                                                    required/>

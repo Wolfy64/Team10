@@ -59,11 +59,13 @@ class Progress extends Component {
     }
 
     handleProgressBar() {
-        const activeGoal = this.props.userReducer.user.goals.find(
+        const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
             goal => goal.isActive
-        );
-        const progress = (activeGoal.currentAmount * 100) / activeGoal.objective;
-        this.setState({progress});
+        ) : undefined;
+        if (activeGoal !== undefined) {
+            const progress = (activeGoal.currentAmount * 100) / activeGoal.objective;
+            this.setState({progress});
+        }
     }
 
     handleGoalAchieved() {
@@ -78,12 +80,12 @@ class Progress extends Component {
 
     render() {
         const {mainGoal, weeks, goals, amount} = this.state;
-        const activeGoal = this.props.userReducer.user.goals.find(
+        const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
             goal => goal.isActive
-        );
+        ) : undefined;
         return (
             <div className="wrapper">
-                <Navigation title="Progress"/>
+                <Navigation title="Progress" exclude={activeGoal === undefined ? '' : 'Add Goal'}/>
 
                 <div className="main-panel">
                     <Header title="Progress"/>

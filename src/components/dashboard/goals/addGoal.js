@@ -94,7 +94,6 @@ class AddGoal extends Component {
     return (
       <div className="wrapper">
         <Navigation title="Add Goal" />
-
         <div className="main-panel">
           <Header title="Add Goal" />
           <div className="content">
@@ -122,7 +121,6 @@ class AddGoal extends Component {
                             </div>
                           </div>
                         </div>
-
                         <div className="row">
                           <div className="col-md-12">
                             <div className="form-group">
@@ -136,7 +134,6 @@ class AddGoal extends Component {
                             </div>
                           </div>
                         </div>
-
                         <div className="row">
                           <div className="col-md-12">
                             <div className="form-group">
