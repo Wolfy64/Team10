@@ -1,9 +1,9 @@
 # Team10
 
-//Resources
+#### Resources
 http://localhost:3001/users
 
-//Requirements
+#### Requirements
 Add constants.json to src/common folder which has your google API credentials
 Example body:
 
@@ -19,7 +19,7 @@ Example body:
   "GOOGLE_DISCOVERY_DOCS": []
 }
 
-//To run from folder root
+#### To run from folder root
 npm install json-server -g
 json-server --watch database/db.json
 npm install
