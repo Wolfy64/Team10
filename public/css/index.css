@@ -154,14 +154,18 @@ can apply same for padding,margin etc where these units are req
 }
 
 /* David */
-.goals-text-center{
+.goals-text-center {
     text-align: center;
 }
 
-.goals-active{
-    background: blanchedalmond!important;
+.goals-active {
+    background: blanchedalmond !important;
 }
 
-.milestone{
+.milestone {
     padding: 10px;
+}
+
+.text-pink {
+    color: pink;
 }

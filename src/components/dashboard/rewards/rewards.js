@@ -90,7 +90,7 @@ class Rewards extends Component {
                                             <div className="content">
                                                 <div className="row">
                                                     <div className="col-xs-5">
-                                                        <div className="icon-big icon-warning text-center">
+                                                        <div className="icon-big icon-info text-center">
                                                             <i className="fas fa-gamepad"/>
                                                         </div>
                                                     </div>

@@ -44,7 +44,7 @@ class Milestones extends React.Component {
             <div className="row">
                 {goals.map((el, i) => {
                     return el.done === undefined ? (
-                        <div key={i} className="col-lg-2 col-xs-6">
+                        <div key={i} className="col-lg-2 col-md-4 col-xs-6">
                             <div className="card">
                                 <div className="content">
                                     <div className="row">
@@ -60,7 +60,7 @@ class Milestones extends React.Component {
                             </div>
                         </div>
                     ) : el.current ? (
-                        <div className="col-lg-2 col-xs-6">
+                        <div className="col-lg-2 col-md-4 col-xs-6">
                             <div className="card">
                                 <div className="content">
                                     <div className="row">
@@ -76,7 +76,7 @@ class Milestones extends React.Component {
                             </div>
                         </div>
                     ) : el.done === true ? (
-                        <div key={i} className="col-lg-2 col-xs-6">
+                        <div key={i} className="col-lg-2 col-md-4 col-xs-6">
                             <div className="card">
                                 <div className="content">
                                     <div className="row">
@@ -92,7 +92,7 @@ class Milestones extends React.Component {
                             </div>
                         </div>
                     ) : (
-                        <div key={i} className="col-lg-2 col-xs-6">
+                        <div key={i} className="col-lg-2 col-md-4 col-xs-6">
                             <div className="card">
                                 <div className="content">
                                     <div className="row">

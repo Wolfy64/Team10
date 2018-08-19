@@ -42,12 +42,19 @@ class Header extends Component {
                             <li>
                                 <a>
                                 <span className="text-vertical-align-center">
-
-                                    <p style={{color: 'black'}}>&nbsp;&nbsp;100</p>
+                                     <i className="fas fa-piggy-bank fa-lg" style={{color: 'pink'}}/>
+                                    <p style={{color: 'black'}}>&nbsp;100</p>
                                 </span>
                                 </a>
                             </li>
-
+                            <li>
+                                <a>
+                                <span className="text-vertical-align-center">
+                                    <i className="fab fa-gg-circle fa-lg text-primary"/>
+                                    <p style={{color: 'black'}}>&nbsp;100</p>
+                                </span>
+                                </a>
+                            </li>
                             <li>
                                 <a>
                                 <span className="text-vertical-align-center">
