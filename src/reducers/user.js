@@ -11,6 +11,12 @@ export default (state = {}, action) => {
                 profile: action.profile,
                 token: action.token
             };
+        case actionTypes.SAVE:
+            return {
+                ...state,
+                status: action.status,
+                message: action.message
+            };
         default:
             return state
     }

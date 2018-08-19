@@ -1,100 +1,101 @@
-import React, { Component } from "react";
-import { Footer, Header, Navigation } from "../../index";
-import { bindActionCreators } from "redux";
+import React, {Component} from "react";
+import {Footer, Header, Navigation} from "../../index";
+import {bindActionCreators} from "redux";
 import * as userActions from "../../../actions/user";
 import connect from "react-redux/es/connect/connect";
 import Milestones from "./Milestones";
 
 class Progress extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      weeks: 4,
-      goal: 1000,
-      goals: [
-        { amount: 100, done: false },
-        { amount: 300, done: true },
-        { amount: 400, done: true, current: true },
-        null,
-        null
-      ],
-      amount: 500,
-      progress: 0
-    };
-  }
-
-  componentDidMount() {
-    this.handleProgressBar();
-  }
-
-  componentWillMount() {
-    if (
-      !this.props.userReducer.isAuthorized ||
-      this.props.userReducer.profile === undefined
-    ) {
-      this.props.history.push("/signin");
+    constructor(props) {
+        super(props);
+        this.state = {
+            weeks: 4,
+            goal: 1000,
+            goals: [
+                {amount: 100, done: false},
+                {amount: 300, done: true},
+                {amount: 400, done: true, current: true},
+                null,
+                null
+            ],
+            amount: 500,
+            progress: 0
+        };
     }
-  }
 
-  componentWillUpdate(nextProps) {
-    if (
-      !nextProps.userReducer.isAuthorized ||
-      this.props.userReducer.profile === undefined
-    ) {
-      this.props.history.push("/signin");
+    componentDidMount() {
+        this.handleProgressBar();
     }
-  }
 
-  handleProgressBar() {
-    const { goal, amount } = this.state;
-    const progress = amount * 100 / goal;
-    this.setState({ progress });
-  }
+    componentWillMount() {
+        if (
+            !this.props.userReducer.isAuthorized ||
+            this.props.userReducer.profile === undefined
+        ) {
+            this.props.history.push("/signin");
+        }
+    }
 
-  render() {
-    const { mainGoal, weeks, goals, amount } = this.state;
-    return (
-      <div className="wrapper">
-        <Navigation title="Progress" />
+    componentWillUpdate(nextProps) {
+        if (
+            !nextProps.userReducer.isAuthorized ||
+            this.props.userReducer.profile === undefined
+        ) {
+            this.props.history.push("/signin");
+        }
+    }
 
-        <div className="main-panel card">
-          <Header title="Progress" />
+    handleProgressBar() {
+        const {goal, amount} = this.state;
+        const progress = amount * 100 / goal;
+        this.setState({progress});
+    }
 
-          <div className="content">
-            <div className="container-fluid">
-              <div className="progress">
-                <div
-                  className="progress-bar"
-                  style={{ width: `${this.state.progress}%` }}
-                />
-              </div>
+    render() {
+        const {mainGoal, weeks, goals, amount} = this.state;
+        return (
+            <div className="wrapper">
+                <Navigation title="Progress"/>
 
-              <Milestones
-                mainGoal={mainGoal}
-                weeks={weeks}
-                goals={goals}
-                balance={amount}
-              />
+                <div className="main-panel">
+                    <Header title="Progress"/>
+
+                    <div className="content">
+                        <div className="container-fluid">
+                            <div className="card">
+                                <div className="progress">
+                                    <div
+                                        className="progress-bar"
+                                        style={{width: `${this.state.progress}%`}}
+                                    />
+                                </div>
+
+                                <Milestones
+                                    mainGoal={mainGoal}
+                                    weeks={weeks}
+                                    goals={goals}
+                                    balance={amount}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <Footer/>
+                </div>
             </div>
-          </div>
-
-          <Footer />
-        </div>
-      </div>
-    );
-  }
+        );
+    }
 }
 
 const mapStateToProps = state => {
-  return { userReducer: state.userReducer };
+    return {userReducer: state.userReducer};
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    userActions: bindActionCreators(userActions, dispatch)
-  };
+    return {
+        userActions: bindActionCreators(userActions, dispatch)
+    };
 };
 
 export default (Progress = connect(mapStateToProps, mapDispatchToProps)(
-  Progress
+    Progress
 ));

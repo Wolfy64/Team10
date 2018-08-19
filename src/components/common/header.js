@@ -42,6 +42,15 @@ class Header extends Component {
                             <li>
                                 <a>
                                 <span className="text-vertical-align-center">
+
+                                    <p style={{color: 'black'}}>&nbsp;&nbsp;100</p>
+                                </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a>
+                                <span className="text-vertical-align-center">
                                     <div className="avatar">
                                         <img
                                             src={this.props.userReducer.profile ? this.props.userReducer.profile.imageURL : ''}

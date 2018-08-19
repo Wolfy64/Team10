@@ -52,6 +52,12 @@ const Navigation = (props) => {
                             <p>Rewards</p>
                         </Link>
                     </li>
+                    <li className={props.title === 'Save' ? 'active' : ''}>
+                        <Link to="/save">
+                            <i className="fas fa-piggy-bank"/>
+                            <p>Save</p>
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </div>
