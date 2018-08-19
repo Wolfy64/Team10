@@ -183,8 +183,8 @@ class Dashboard extends Component {
                           </div>
                           <div className="col-xs-7">
                             <div className="numbers">
-                              <p>Execute</p>
-                              Save
+                              <p>Deposit to</p>
+                              Dream
                             </div>
                           </div>
                         </div>

@@ -108,7 +108,7 @@ class AddGoal extends Component {
                                     <div className="col-lg-8 col-md-7">
                                         <div className="card">
                                             <div className="header">
-                                                <h4 className="title">What are you saving for?</h4>
+                                                <h4 className="title">What INSPIRES you to Save?</h4>
                                             </div>
                                             <div className="content">
                                                 <div className="row">
@@ -118,7 +118,7 @@ class AddGoal extends Component {
                                                             <input
                                                                 type="text"
                                                                 className="form-control border-input"
-                                                                placeholder="enter a title for the goal"
+                                                                placeholder="what touches your heart today?"
                                                                 name="title"
                                                                 id="title"
                                                                 onChange={event => this.handleChange(event)}
@@ -168,7 +168,7 @@ class AddGoal extends Component {
                                                                 id="weeks"
                                                                 type="number"
                                                                 className="form-control border-input"
-                                                                placeholder="target # of weeks to achieve the goal"
+                                                                placeholder="target # of weeks to achieve your hope"
                                                                 name="weeks"
                                                                 min="1"
                                                                 onChange={event => this.handleChange(event)}
