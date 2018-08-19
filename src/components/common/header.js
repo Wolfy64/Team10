@@ -6,7 +6,6 @@ import connect from "react-redux/es/connect/connect";
 class Header extends Component {
     constructor(props) {
         super(props);
-
     }
 
     render() {
@@ -43,7 +42,7 @@ class Header extends Component {
                                 <a>
                                 <span className="text-vertical-align-center">
                                      <i className="fas fa-piggy-bank fa-lg" style={{color: 'pink'}}/>
-                                    <p style={{color: 'black'}}>&nbsp;100</p>
+                                    <p style={{color: 'black'}}>&nbsp; $ {this.props.userReducer.user.saving}</p>
                                 </span>
                                 </a>
                             </li>
@@ -51,7 +50,7 @@ class Header extends Component {
                                 <a>
                                 <span className="text-vertical-align-center">
                                     <i className="fab fa-gg-circle fa-lg text-primary"/>
-                                    <p style={{color: 'black'}}>&nbsp;100</p>
+                                    <p style={{color: 'black'}}>&nbsp;{this.props.userReducer.user.coins}</p>
                                 </span>
                                 </a>
                             </li>

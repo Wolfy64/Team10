@@ -130,16 +130,25 @@ const googleGetUserProfile = (token) => {
         });
 };
 
-export const save = (data) => {
+export const save = (userData, data) => {
+
+    userData.coins += data.amount;
+    userData.saving += data.amount;
+    userData.goals.forEach(function (goal) {
+        if (goal.isActive) {
+            goal.currentAmount += data.amount;
+        }
+    });
+
     return (dispatch) => {
         return axios
-            .get(`${constants.GOOGLE_TOKEN_INFO_API}`)
+            .patch(`http://localhost:3001/users/${userData.id}`, userData)
             .then(response => {
                 // Dispatch another action to consume data
                 if (response.status === 200) {
                     dispatch({
                         type: actionTypes.SAVE,
-                        status: 'SUCCESS'
+                        status: 'UPDATED'
                     });
                 } else {
                     dispatch({

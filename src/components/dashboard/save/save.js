@@ -9,10 +9,6 @@ class Save extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            amount: 1
-        };
-
         this.handleChange = this.handleChange.bind(this);
         this.submitForm = this.submitForm.bind(this)
     }
@@ -28,7 +24,7 @@ class Save extends Component {
         // let formData = new FormData();
         // formData.append('name', this.state.name);
         // formData.append('email', this.state.email);
-        this.props.userActions.save(this.state);
+        this.props.userActions.save(this.props.userReducer.user, this.state);
         event.target.reset();
     }
 
@@ -37,7 +33,7 @@ class Save extends Component {
         if (!this.props.userReducer.isAuthorized || this.props.userReducer.profile === undefined) {
             this.props.history.push('/signin');
         }
-        if (this.props.userReducer.user === undefined) {
+        if (this.props.userReducer.user === undefined || this.props.userReducer.status === 'UPDATED') {
             this.props.userActions.getUser(this.props.userReducer.profile.email);
         }
     }
@@ -46,7 +42,7 @@ class Save extends Component {
         if (!nextProps.userReducer.isAuthorized || nextProps.userReducer.profile === undefined) {
             nextProps.history.push('/signin');
         }
-        if (nextProps.userReducer.user === undefined) {
+        if (nextProps.userReducer.user === undefined || nextProps.userReducer.status === 'UPDATED') {
             nextProps.userActions.getUser(nextProps.userReducer.profile.email);
         }
     }
@@ -79,7 +75,6 @@ class Save extends Component {
                                                                    placeholder="amount in USD"
                                                                    name="amount"
                                                                    min="1"
-                                                                   value={this.state.amount}
                                                                    onChange={(event) => this.handleChange(event)}
                                                                    required/>
                                                         </div>
