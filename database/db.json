@@ -1,6 +1,7 @@
 {
-  "users":{
-    "user1@gmail.com": {
+  "users":[
+    {
+      "id": "ledavid64@gmail.com",
       "coins": 10,
       "saving": 2000,
       "goalsList": {
@@ -9,7 +10,7 @@
           "name": "Guatemala",
           "category": "Travel",
           "achieved": true,
-          "isActive": true,
+          "isActive": false,
           "objective": 800,
           "startDate": "8/1/2018",
           "currentAmount": 500,
@@ -24,7 +25,39 @@
           "id": 2,
           "name": "Buy a present to my wife",
           "category": "Family",
+          "achieved": false,
+          "isActive": false,
+          "objective": 1000,
+          "startDate": "8/1/2018",
+          "currentAmount": 300,
+          "weeks": [
+            {"target": 100, "achieved": false},
+            {"target": 300, "achieved": true},
+            {"target": 400, "achieved": true},
+            {"target": 200, "achieved": true}
+            ]
+        },
+        "goal_3": {
+          "id": 3,
+          "name": "Buy a new phone",
+          "category": "Products",
           "achieved": true,
+          "isActive": false,
+          "objective": 1000,
+          "startDate": "8/1/2018",
+          "currentAmount": 300,
+          "weeks": [
+            {"target": 100, "achieved": false},
+            {"target": 300, "achieved": true},
+            {"target": 400, "achieved": true},
+            {"target": 200, "achieved": true}
+            ]
+        },
+        "goal_4": {
+          "id": 4,
+          "name": "Save just in case",
+          "category": "Emergency",
+          "achieved": false,
           "isActive": true,
           "objective": 1000,
           "startDate": "8/1/2018",
@@ -38,7 +71,8 @@
         }
       }
     },
-    "user2@gmail.com": {
+    {
+      "id": "user2@gmail.com",
       "coins": 50,
       "saving": 5000,
       "goalsList": {
@@ -73,8 +107,40 @@
             {"target": 400, "achieved": true},
             {"target": 200, "achieved": true}
             ]
+        },
+        "goal_3": {
+          "id": 2,
+          "name": "Saving",
+          "category": "Emergency",
+          "achieved": false,
+          "isActive": true,
+          "objective": 1000,
+          "startDate": "8/1/2018",
+          "currentAmount": 300,
+          "weeks": [
+            {"target": 100, "achieved": false},
+            {"target": 300, "achieved": true},
+            {"target": 400, "achieved": true},
+            {"target": 200, "achieved": true}
+            ]
+        },
+        "goal_4": {
+          "id": 2,
+          "name": "Saving",
+          "category": "Emergency",
+          "achieved": false,
+          "isActive": true,
+          "objective": 1000,
+          "startDate": "8/1/2018",
+          "currentAmount": 300,
+          "weeks": [
+            {"target": 100, "achieved": false},
+            {"target": 300, "achieved": true},
+            {"target": 400, "achieved": true},
+            {"target": 200, "achieved": true}
+            ]
         }
       }
     }
-  }
+  ]
 }
