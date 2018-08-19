@@ -10,24 +10,13 @@ class Progress extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            coins: 0,
-            weeks: 4,
-            goal: 1000,
-            goals: [
-                {amount: 100, done: false},
-                {amount: 300, done: true},
-                {amount: 400, done: true, current: true},
-                {amount: 100, done: undefined},
-                {amount: 100, done: undefined}
-            ],
-            amount: 500,
             progress: 0
         };
     }
 
     componentDidMount() {
         this.handleProgressBar();
-        console.log(this.props.userReducer.user);
+        // console.log(this.props.userReducer.user);
     }
 
     componentWillMount() {
@@ -79,7 +68,6 @@ class Progress extends Component {
     }
 
     render() {
-        const {mainGoal, weeks, goals, amount} = this.state;
         const activeGoal = this.props.userReducer.user ? this.props.userReducer.user.goals.find(
             goal => goal.isActive
         ) : undefined;
@@ -144,7 +132,7 @@ class Progress extends Component {
                                             <h4 className="title">Active Goal</h4>
                                             <p className="category">
                                                 {
-                                                    activeGoal === undefined ? "You don't have an active goal" : "This is your current goal's progress."
+                                                    activeGoal === undefined ? "You don't have an active goal" : "This is your current goal's progress - $" + activeGoal.currentAmount
                                                 }
                                             </p>
                                             <br/>
@@ -165,10 +153,7 @@ class Progress extends Component {
                                     </div>
                                     {activeGoal === undefined ? '' :
                                         <Milestones
-                                            goals={goals}
-                                            mainGoal={mainGoal}
-                                            weeks={weeks}
-                                            amount={amount}
+                                            activeGoal={activeGoal}
                                         />
                                     }
                                 </div>
