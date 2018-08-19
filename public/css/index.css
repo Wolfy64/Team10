@@ -1,11 +1,150 @@
-.text-vertical-align-center{
+.text-vertical-align-center {
     display: flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
 }
 
-.page-align-center{
+.page-align-center {
     display: flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .quote {
+        font-size: 3vw;
+    }
+
+    .by {
+        font-size: 2vw;
+    }
+
+    #bg-error, #bg-success {
+        width: 75%;
+        height: auto;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .quote {
+        font-size: 2.5vw;
+    }
+
+    .by {
+        font-size: 1.5vw;
+    }
+
+    #bg-error, #bg-success {
+        width: 75%;
+        height: auto;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .quote {
+        font-size: 1.4vw;
+    }
+
+    .by {
+        font-size: 1.2vw;
+    }
+
+    #bg-error, #bg-success {
+        width: 75%;
+        height: auto;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .quote {
+        font-size: 1.4vw;
+    }
+
+    .by {
+        font-size: 1.2vw;
+    }
+
+    #bg-error, #bg-success {
+        height: 75%;
+        width: auto;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1300px) {
+    .quote {
+        font-size: 1vw;
+    }
+
+    .by {
+        font-size: 0.8vw;
+    }
+
+    #bg-error, #bg-success {
+        height: 75%;
+        width: auto;
+    }
+}
+
+/* We can have a convention to name css classes as below which can help to add styling quickly
+one-quarter = 4px
+one-half = 8px
+one = 16px
+
+can apply same for padding,margin etc where these units are req
+*/
+.padding-bottom-one-half {
+    padding-bottom: 8px;
+}
+
+.padding-bottom-one {
+    padding-bottom: 16px;
+}
+
+.padding-right-one-half {
+    padding-right: 8px;
+}
+
+.margin-header-footer {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.error-page, .success-page {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    text-align: center;
+}
+
+.error-page {
+    padding: 0;
+}
+
+.outer-div {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    background: lightgray;
+}
+
+.inner-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

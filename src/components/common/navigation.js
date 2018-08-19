@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import logo from "../../img/logo.png";
 
 const Navigation = (props) => {
     return (
@@ -15,7 +16,8 @@ const Navigation = (props) => {
             <div className="sidebar-wrapper">
                 <div className="logo">
                     <Link to="/" className="simple-text">
-                        Flourish Savings
+                        {/*Flourish Savings*/}
+                        <img src={logo} alt="Flourish Savings" id="logo" style={{width: '50%'}}/>
                     </Link>
                 </div>
 
@@ -26,10 +28,28 @@ const Navigation = (props) => {
                             <p>Dashboard</p>
                         </Link>
                     </li>
-                    <li className={props.title === 'Your Goals' ? 'active' : ''}>
+                    <li className={props.title === 'Add Goal' ? 'active' : ''}>
+                        <Link to="/add-goal">
+                            <i className="fas fa-plus"/>
+                            <p>Add Goal</p>
+                        </Link>
+                    </li>
+                    <li className={props.title === 'Goals' ? 'active' : ''}>
                         <Link to="/goals">
-                            <i className="ti-camera"/>
-                            <p>Your Goals</p>
+                            <i className="fas fa-bullseye"/>
+                            <p>Goals</p>
+                        </Link>
+                    </li>
+                    <li className={props.title === 'Progress' ? 'active' : ''}>
+                        <Link to="/progress">
+                            <i className="fas fa-angle-double-up"/>
+                            <p>Progress</p>
+                        </Link>
+                    </li>
+                    <li className={props.title === 'Rewards' ? 'active' : ''}>
+                        <Link to="/rewards">
+                            <i className="fas fa-trophy"/>
+                            <p>Rewards</p>
                         </Link>
                     </li>
                 </ul>
