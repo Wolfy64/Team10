@@ -66,23 +66,23 @@ class Progress extends Component {
                             <div className="row">
                                 {/* === Goals === */}
                                 <div className="col-lg-4 col-sm-6">
-                                        <div className="card">
-                                            <div className="content">
-                                                <div className="row">
-                                                    <div className="col-xs-5">
-                                                        <div className="icon-big icon-success text-center">
-                                                            <i className="fas fa-dollar-sign"/>
-                                                        </div>
+                                    <div className="card">
+                                        <div className="content">
+                                            <div className="row">
+                                                <div className="col-xs-5">
+                                                    <div className="icon-big icon-success text-center">
+                                                        <i className="fas fa-check-circle"/>
                                                     </div>
-                                                    <div className="col-xs-7">
-                                                        <div className="numbers">
-                                                            <p>Goals Achieved</p>
-                                                            2
-                                                        </div>
+                                                </div>
+                                                <div className="col-xs-7">
+                                                    <div className="numbers">
+                                                        <p>Goals Achieved</p>
+                                                        2
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                                 {/* ===  === */}
                                 {/* === Goals === */}
@@ -91,8 +91,8 @@ class Progress extends Component {
                                         <div className="content">
                                             <div className="row">
                                                 <div className="col-xs-5">
-                                                    <div className="icon-big icon-success text-center">
-                                                        <i className="fas fa-dollar-sign"/>
+                                                    <div className="icon-big icon-danger text-center">
+                                                        <i className="fas fa-times-circle text-danger"/>
                                                     </div>
                                                 </div>
                                                 <div className="col-xs-7">
@@ -107,21 +107,32 @@ class Progress extends Component {
                                 </div>
                                 {/* ===  === */}
                             </div>
+                            <hr/>
                             <div className="row">
-                                <div className="card">
-                                    <div className="progress">
-                                        <div
-                                            className="progress-bar"
-                                            style={{width: `${this.state.progress}%`}}
-                                        />
+                                <div className="col-md-12">
+                                    <div className="card">
+                                        <div className="header">
+                                            <h4 className="title">Active Goal</h4>
+                                            <p className="category">This is your current goal's progress.</p>
+                                        </div>
+                                        <div className="content">
+                                            <div className="progress">
+                                                <div className="progress-bar progress-bar-striped active"
+                                                     role="progressbar"
+                                                     style={{width: `${this.state.progress}%`}}>
+                                                    {this.state.progress}%
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <Milestones goals={goals} mainGoal={mainGoal} weeks={weeks} amount={amount}/>
                                     </div>
                                 </div>
                             </div>
-                            <div className="row">
+                            {/*<div className="row">
                                 <div className="card">
                                     <Milestones goals={goals} mainGoal={mainGoal} weeks={weeks} amount={amount}/>
                                 </div>
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                     <Footer/>

@@ -94,7 +94,7 @@ class Goals extends Component {
                                         <p className="category">Here is a subtitle on my goals</p>
                                     </div>*/}
                                     <div className="content table-responsive table-full-width">
-                                        <table className="table table-striped">
+                                        <table className="table">
                                             <thead>
                                             <tr>
                                                 <th>#</th>

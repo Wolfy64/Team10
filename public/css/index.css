@@ -97,6 +97,10 @@ one = 16px
 
 can apply same for padding,margin etc where these units are req
 */
+.padding-all {
+    padding: 8px;
+}
+
 .padding-bottom-one-half {
     padding-bottom: 8px;
 }
