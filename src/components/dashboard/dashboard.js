@@ -70,12 +70,6 @@ class Dashboard extends Component {
                               </div>
                             </div>
                           </div>
-                          {/*<div className="footer">
-                                                <hr/>
-                                                <div className="stats">
-                                                    <i className="ti-reload"/> Updated now
-                                                </div>
-                                            </div>*/}
                         </div>
                       </div>
                     </Link>
@@ -100,17 +94,10 @@ class Dashboard extends Component {
                             </div>
                           </div>
                         </div>
-                        {/*<div className="footer">
-                                                <hr/>
-                                                <div className="stats">
-                                                    <i className="ti-reload"/> Updated now
-                                                </div>
-                                            </div>*/}
                       </div>
                     </div>
                   </Link>
                 </div>
-
                 <div className="col-lg-4 col-sm-6">
                   <Link to="/progress">
                     <div className="card">
@@ -128,18 +115,10 @@ class Dashboard extends Component {
                             </div>
                           </div>
                         </div>
-
-                        {/*<div className="footer">*/}
-                        {/*<hr/>*/}
-                        {/*<div className="stats">*/}
-                        {/*<i className="ti-reload"/> Updated now*/}
-                        {/*</div>*/}
-                        {/*</div>*/}
                       </div>
                     </div>
                   </Link>
                 </div>
-
                 <div className="col-lg-4 col-sm-6">
                   <Link to="/rewards">
                     <div className="card">
@@ -157,12 +136,6 @@ class Dashboard extends Component {
                             </div>
                           </div>
                         </div>
-                        {/*<div className="footer">
-                                                <hr/>
-                                                <div className="stats">
-                                                    <i className="ti-reload"/> Updated now
-                                                </div>
-                                            </div>*/}
                       </div>
                     </div>
                   </Link>
@@ -176,8 +149,7 @@ class Dashboard extends Component {
                           <div className="col-xs-5">
                             <div
                               className="icon-big text-center"
-                              style={{ color: 'pink' }}
-                            >
+                              style={{ color: 'pink' }}>
                               <i className="fas fa-piggy-bank" />
                             </div>
                           </div>
@@ -188,12 +160,6 @@ class Dashboard extends Component {
                             </div>
                           </div>
                         </div>
-                        {/*<div className="footer">
-                                                <hr/>
-                                                <div className="stats">
-                                                    <i className="ti-reload"/> Updated now
-                                                </div>
-                                            </div>*/}
                       </div>
                     </div>
                   </Link>
